@@ -1,0 +1,641 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D88FA7042F96B4E100859C04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D88FA7002F96B4E100859C04 /* Assets.xcassets */; };
+		D88FA7052F96B4E100859C04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA7012F96B4E100859C04 /* ContentView.swift */; };
+		D88FA7062F96B4E100859C04 /* MastermindGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA7022F96B4E100859C04 /* MastermindGameApp.swift */; };
+		D88FA70A2F96B52000859C04 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA7092F96B52000859C04 /* GameScreen.swift */; };
+		D88FA70C2F96B54300859C04 /* GameScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA70B2F96B54300859C04 /* GameScreenViewModel.swift */; };
+		D88FA70E2F96B55200859C04 /* ResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA70D2F96B55200859C04 /* ResultScreen.swift */; };
+		D88FA7102F96B55D00859C04 /* ResultScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA70F2F96B55D00859C04 /* ResultScreenViewModel.swift */; };
+		D88FA7122F96B5AD00859C04 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA7112F96B5AD00859C04 /* AppRouter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D88FA6D62F96B48F00859C04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D88FA6C02F96B48E00859C04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D88FA6C72F96B48E00859C04;
+			remoteInfo = MastermindGame;
+		};
+		D88FA6E02F96B48F00859C04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D88FA6C02F96B48E00859C04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D88FA6C72F96B48E00859C04;
+			remoteInfo = MastermindGame;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D88FA6C82F96B48E00859C04 /* MastermindGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MastermindGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D88FA6D52F96B48F00859C04 /* MastermindGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MastermindGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D88FA6DF2F96B48F00859C04 /* MastermindGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MastermindGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D88FA7002F96B4E100859C04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D88FA7012F96B4E100859C04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D88FA7022F96B4E100859C04 /* MastermindGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastermindGameApp.swift; sourceTree = "<group>"; };
+		D88FA7092F96B52000859C04 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
+		D88FA70B2F96B54300859C04 /* GameScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewModel.swift; sourceTree = "<group>"; };
+		D88FA70D2F96B55200859C04 /* ResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScreen.swift; sourceTree = "<group>"; };
+		D88FA70F2F96B55D00859C04 /* ResultScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScreenViewModel.swift; sourceTree = "<group>"; };
+		D88FA7112F96B5AD00859C04 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D88FA6D82F96B48F00859C04 /* MastermindGameTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MastermindGameTests;
+			sourceTree = "<group>";
+		};
+		D88FA6E22F96B48F00859C04 /* MastermindGameUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MastermindGameUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D88FA6C52F96B48E00859C04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88FA6D22F96B48F00859C04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88FA6DC2F96B48F00859C04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D88FA6BF2F96B48E00859C04 = {
+			isa = PBXGroup;
+			children = (
+				D88FA7032F96B4E100859C04 /* MastermindGame */,
+				D88FA6D82F96B48F00859C04 /* MastermindGameTests */,
+				D88FA6E22F96B48F00859C04 /* MastermindGameUITests */,
+				D88FA6C92F96B48E00859C04 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D88FA6C92F96B48E00859C04 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D88FA6C82F96B48E00859C04 /* MastermindGame.app */,
+				D88FA6D52F96B48F00859C04 /* MastermindGameTests.xctest */,
+				D88FA6DF2F96B48F00859C04 /* MastermindGameUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D88FA7032F96B4E100859C04 /* MastermindGame */ = {
+			isa = PBXGroup;
+			children = (
+				D88FA7072F96B4E400859C04 /* Scenes */,
+				D88FA7002F96B4E100859C04 /* Assets.xcassets */,
+				D88FA7012F96B4E100859C04 /* ContentView.swift */,
+				D88FA7022F96B4E100859C04 /* MastermindGameApp.swift */,
+				D88FA71B2F96BA0400859C04 /* Router */,
+			);
+			path = MastermindGame;
+			sourceTree = "<group>";
+		};
+		D88FA7072F96B4E400859C04 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				D88FA7082F96B50900859C04 /* Game */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		D88FA7082F96B50900859C04 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				D88FA7092F96B52000859C04 /* GameScreen.swift */,
+				D88FA70B2F96B54300859C04 /* GameScreenViewModel.swift */,
+				D88FA70D2F96B55200859C04 /* ResultScreen.swift */,
+				D88FA70F2F96B55D00859C04 /* ResultScreenViewModel.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		D88FA71B2F96BA0400859C04 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D88FA7112F96B5AD00859C04 /* AppRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D88FA6C72F96B48E00859C04 /* MastermindGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D88FA6E92F96B48F00859C04 /* Build configuration list for PBXNativeTarget "MastermindGame" */;
+			buildPhases = (
+				D88FA6C42F96B48E00859C04 /* Sources */,
+				D88FA6C52F96B48E00859C04 /* Frameworks */,
+				D88FA6C62F96B48E00859C04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MastermindGame;
+			packageProductDependencies = (
+			);
+			productName = MastermindGame;
+			productReference = D88FA6C82F96B48E00859C04 /* MastermindGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D88FA6D42F96B48F00859C04 /* MastermindGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D88FA6EC2F96B48F00859C04 /* Build configuration list for PBXNativeTarget "MastermindGameTests" */;
+			buildPhases = (
+				D88FA6D12F96B48F00859C04 /* Sources */,
+				D88FA6D22F96B48F00859C04 /* Frameworks */,
+				D88FA6D32F96B48F00859C04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D88FA6D72F96B48F00859C04 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D88FA6D82F96B48F00859C04 /* MastermindGameTests */,
+			);
+			name = MastermindGameTests;
+			packageProductDependencies = (
+			);
+			productName = MastermindGameTests;
+			productReference = D88FA6D52F96B48F00859C04 /* MastermindGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D88FA6DE2F96B48F00859C04 /* MastermindGameUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D88FA6EF2F96B48F00859C04 /* Build configuration list for PBXNativeTarget "MastermindGameUITests" */;
+			buildPhases = (
+				D88FA6DB2F96B48F00859C04 /* Sources */,
+				D88FA6DC2F96B48F00859C04 /* Frameworks */,
+				D88FA6DD2F96B48F00859C04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D88FA6E12F96B48F00859C04 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D88FA6E22F96B48F00859C04 /* MastermindGameUITests */,
+			);
+			name = MastermindGameUITests;
+			packageProductDependencies = (
+			);
+			productName = MastermindGameUITests;
+			productReference = D88FA6DF2F96B48F00859C04 /* MastermindGameUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D88FA6C02F96B48E00859C04 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					D88FA6C72F96B48E00859C04 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+					D88FA6D42F96B48F00859C04 = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = D88FA6C72F96B48E00859C04;
+					};
+					D88FA6DE2F96B48F00859C04 = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = D88FA6C72F96B48E00859C04;
+					};
+				};
+			};
+			buildConfigurationList = D88FA6C32F96B48E00859C04 /* Build configuration list for PBXProject "MastermindGame" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D88FA6BF2F96B48E00859C04;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D88FA6C92F96B48E00859C04 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D88FA6C72F96B48E00859C04 /* MastermindGame */,
+				D88FA6D42F96B48F00859C04 /* MastermindGameTests */,
+				D88FA6DE2F96B48F00859C04 /* MastermindGameUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D88FA6C62F96B48E00859C04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D88FA7042F96B4E100859C04 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88FA6D32F96B48F00859C04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88FA6DD2F96B48F00859C04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D88FA6C42F96B48E00859C04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D88FA7052F96B4E100859C04 /* ContentView.swift in Sources */,
+				D88FA7102F96B55D00859C04 /* ResultScreenViewModel.swift in Sources */,
+				D88FA70A2F96B52000859C04 /* GameScreen.swift in Sources */,
+				D88FA70E2F96B55200859C04 /* ResultScreen.swift in Sources */,
+				D88FA7122F96B5AD00859C04 /* AppRouter.swift in Sources */,
+				D88FA70C2F96B54300859C04 /* GameScreenViewModel.swift in Sources */,
+				D88FA7062F96B4E100859C04 /* MastermindGameApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88FA6D12F96B48F00859C04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88FA6DB2F96B48F00859C04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D88FA6D72F96B48F00859C04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D88FA6C72F96B48E00859C04 /* MastermindGame */;
+			targetProxy = D88FA6D62F96B48F00859C04 /* PBXContainerItemProxy */;
+		};
+		D88FA6E12F96B48F00859C04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D88FA6C72F96B48E00859C04 /* MastermindGame */;
+			targetProxy = D88FA6E02F96B48F00859C04 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D88FA6E72F96B48F00859C04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8884T3J9G3;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D88FA6E82F96B48F00859C04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8884T3J9G3;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D88FA6EA2F96B48F00859C04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8884T3J9G3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = plamen.MastermindGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D88FA6EB2F96B48F00859C04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8884T3J9G3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = plamen.MastermindGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D88FA6ED2F96B48F00859C04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8884T3J9G3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = plamen.MastermindGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MastermindGame.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MastermindGame";
+			};
+			name = Debug;
+		};
+		D88FA6EE2F96B48F00859C04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8884T3J9G3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = plamen.MastermindGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MastermindGame.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MastermindGame";
+			};
+			name = Release;
+		};
+		D88FA6F02F96B48F00859C04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8884T3J9G3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = plamen.MastermindGameUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MastermindGame;
+			};
+			name = Debug;
+		};
+		D88FA6F12F96B48F00859C04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8884T3J9G3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = plamen.MastermindGameUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MastermindGame;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D88FA6C32F96B48E00859C04 /* Build configuration list for PBXProject "MastermindGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D88FA6E72F96B48F00859C04 /* Debug */,
+				D88FA6E82F96B48F00859C04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D88FA6E92F96B48F00859C04 /* Build configuration list for PBXNativeTarget "MastermindGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D88FA6EA2F96B48F00859C04 /* Debug */,
+				D88FA6EB2F96B48F00859C04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D88FA6EC2F96B48F00859C04 /* Build configuration list for PBXNativeTarget "MastermindGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D88FA6ED2F96B48F00859C04 /* Debug */,
+				D88FA6EE2F96B48F00859C04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D88FA6EF2F96B48F00859C04 /* Build configuration list for PBXNativeTarget "MastermindGameUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D88FA6F02F96B48F00859C04 /* Debug */,
+				D88FA6F12F96B48F00859C04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D88FA6C02F96B48E00859C04 /* Project object */;
+}
