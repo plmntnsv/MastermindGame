@@ -8,12 +8,23 @@
 import SwiftUI
 
 struct ResultView: View {
-    @Environment(AppRouter.self) private var router
+    @State var viewModel: ResultViewModel
+    
     var body: some View {
-        Text("RESULT")
+        VStack {
+            Text(viewModel.isSuccess ? "SUCCESS" : "FAILURE")
+                .font(.largeTitle)
+                .bold()
+            Button("Retry") {
+                viewModel.onRetryTapped()
+            }
+            .buttonStyle(.borderedProminent)
+            .padding()
+        }
+        .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
-    ResultView()
+    ResultView(viewModel: ResultViewModel(router: AppRouter(), isSuccess: true))
 }

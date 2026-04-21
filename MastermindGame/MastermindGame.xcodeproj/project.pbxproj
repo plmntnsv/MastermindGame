@@ -13,9 +13,9 @@
 		D88FA70A2F96B52000859C04 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA7092F96B52000859C04 /* GameView.swift */; };
 		D88FA70C2F96B54300859C04 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA70B2F96B54300859C04 /* GameViewModel.swift */; };
 		D88FA70E2F96B55200859C04 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA70D2F96B55200859C04 /* ResultView.swift */; };
-		D88FA7102F96B55D00859C04 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA70F2F96B55D00859C04 /* ResultViewModel.swift */; };
 		D88FA7122F96B5AD00859C04 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA7112F96B5AD00859C04 /* AppRouter.swift */; };
 		D88FA7302F97783C00859C04 /* GameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA72F2F97783C00859C04 /* GameFactory.swift */; };
+		D88FA7402F97D90500859C04 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA73F2F97D90500859C04 /* ResultViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +45,9 @@
 		D88FA7092F96B52000859C04 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		D88FA70B2F96B54300859C04 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		D88FA70D2F96B55200859C04 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
-		D88FA70F2F96B55D00859C04 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
 		D88FA7112F96B5AD00859C04 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		D88FA72F2F97783C00859C04 /* GameFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFactory.swift; sourceTree = "<group>"; };
+		D88FA73F2F97D90500859C04 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -133,7 +133,7 @@
 				D88FA7092F96B52000859C04 /* GameView.swift */,
 				D88FA70B2F96B54300859C04 /* GameViewModel.swift */,
 				D88FA70D2F96B55200859C04 /* ResultView.swift */,
-				D88FA70F2F96B55D00859C04 /* ResultViewModel.swift */,
+				D88FA73F2F97D90500859C04 /* ResultViewModel.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -307,9 +307,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D88FA7052F96B4E100859C04 /* RootView.swift in Sources */,
-				D88FA7102F96B55D00859C04 /* ResultViewModel.swift in Sources */,
 				D88FA70A2F96B52000859C04 /* GameView.swift in Sources */,
 				D88FA7302F97783C00859C04 /* GameFactory.swift in Sources */,
+				D88FA7402F97D90500859C04 /* ResultViewModel.swift in Sources */,
 				D88FA70E2F96B55200859C04 /* ResultView.swift in Sources */,
 				D88FA7122F96B5AD00859C04 /* AppRouter.swift in Sources */,
 				D88FA70C2F96B54300859C04 /* GameViewModel.swift in Sources */,

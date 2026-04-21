@@ -8,11 +8,17 @@
 import Foundation
 
 struct GameFactory {
-    static func makeGameView() -> GameView {
-        GameView()
+    static func makeGameView(router: AppRouter) -> GameView {
+        let vm = GameViewModel(router: router)
+        return GameView(viewModel: vm)
     }
     
-    static func makeResultView(isSuccess: Bool) -> ResultView {
-        ResultView()
+    static func makeResultView(router: AppRouter, isSuccess: Bool) -> ResultView {
+        let vm = ResultViewModel(router: router, isSuccess: isSuccess)
+        return ResultView(viewModel: vm)
+    }
+    
+    static func makeRootView() {
+        
     }
 }

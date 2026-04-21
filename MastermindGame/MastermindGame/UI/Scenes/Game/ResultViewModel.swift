@@ -9,5 +9,15 @@ import Foundation
 
 @Observable
 final class ResultViewModel {
+    var router: AppRouter
+    let isSuccess: Bool
     
+    init(router: AppRouter, isSuccess: Bool) {
+        self.router = router
+        self.isSuccess = isSuccess
+    }
+    
+    func onRetryTapped() {
+        router.popToRoot()
+    }
 }

@@ -26,6 +26,6 @@ final class AppRouter {
     }
     
     func popToRoot() {
-        path.removeLast(path.count)
+        path = NavigationPath()
     }
 }

@@ -12,12 +12,11 @@ struct RootView: View {
     
     var body: some View {
         NavigationStack(path: $router.path) {
-            GameView()
+            destination(for: .game)
                 .navigationDestination(for: AppRoute.self) { route in
                     destination(for: route)
                 }
         }
-        .environment(router)
     }
 }
 
@@ -26,9 +25,9 @@ extension RootView {
     func destination(for route: AppRoute) -> some View {
         switch route {
         case .game:
-            GameFactory.makeGameView()
+            GameFactory.makeGameView(router: router)
         case .result(let success):
-            GameFactory.makeResultView(isSuccess: success)
+            GameFactory.makeResultView(router: router, isSuccess: success)
         }
     }
 }
