@@ -28,14 +28,4 @@ final class AppRouter {
     func popToRoot() {
         path.removeLast(path.count)
     }
-    
-    @ViewBuilder
-    func view(for route: AppRoute) -> some View {
-        switch route {
-        case .game:
-            GameFactory.makeGameView()
-        case .result(let success):
-            GameFactory.makeResultView(isSuccess: success)
-        }
-    }
 }

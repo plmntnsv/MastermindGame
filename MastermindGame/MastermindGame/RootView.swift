@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RootView.swift
 //  MastermindGame
 //
 //  Created by Plamen Atanasov on 20.04.26.
@@ -14,10 +14,22 @@ struct RootView: View {
         NavigationStack(path: $router.path) {
             GameView()
                 .navigationDestination(for: AppRoute.self) { route in
-                    router.view(for: route)
+                    destination(for: route)
                 }
         }
         .environment(router)
+    }
+}
+
+extension RootView {
+    @ViewBuilder
+    func destination(for route: AppRoute) -> some View {
+        switch route {
+        case .game:
+            GameFactory.makeGameView()
+        case .result(let success):
+            GameFactory.makeResultView(isSuccess: success)
+        }
     }
 }
 

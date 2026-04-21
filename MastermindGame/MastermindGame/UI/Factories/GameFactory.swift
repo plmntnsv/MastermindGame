@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import SwiftUI
 
-final class GameFactory {
+struct GameFactory {
     static func makeGameView() -> GameView {
         GameView()
     }
