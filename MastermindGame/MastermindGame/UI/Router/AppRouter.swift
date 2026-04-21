@@ -15,6 +15,7 @@ enum AppRoute: Hashable {
 @Observable
 final class AppRouter {
     var path = NavigationPath()
+    static let shared = AppRouter()
     
     func push(_ route: AppRoute) {
         path.append(route)
@@ -25,16 +26,16 @@ final class AppRouter {
     }
     
     func popToRoot() {
-        path = NavigationPath()
+        path.removeLast(path.count)
     }
     
     @ViewBuilder
     func view(for route: AppRoute) -> some View {
         switch route {
         case .game:
-            GameScreen()
+            GameFactory.makeGameView()
         case .result(let success):
-            ResultSCreen()
+            GameFactory.makeResultView(isSuccess: success)
         }
     }
 }

@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct MastermindGameApp: App {
+    private let router = AppRouter()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView(router: router)
         }
     }
 }
