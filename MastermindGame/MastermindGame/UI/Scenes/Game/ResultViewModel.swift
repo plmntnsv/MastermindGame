@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 final class ResultViewModel {
-    var router: AppRouter
+    let router: AppRouter
     let isSuccess: Bool
     let secret: [String]
     

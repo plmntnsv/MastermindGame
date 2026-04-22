@@ -16,7 +16,7 @@
 		D88FA7122F96B5AD00859C04 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA7112F96B5AD00859C04 /* AppRouter.swift */; };
 		D88FA7302F97783C00859C04 /* GameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA72F2F97783C00859C04 /* GameFactory.swift */; };
 		D88FA7402F97D90500859C04 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA73F2F97D90500859C04 /* ResultViewModel.swift */; };
-		D88FA74C2F989D5700859C04 /* InputSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA74B2F989D5700859C04 /* InputSlot.swift */; };
+		D88FA74C2F989D5700859C04 /* InputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA74B2F989D5700859C04 /* InputBox.swift */; };
 		D88FA74F2F98A0AC00859C04 /* AppButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA74E2F98A0AC00859C04 /* AppButtonStyle.swift */; };
 		D88FA7552F98A52400859C04 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D88FA7542F98A52400859C04 /* Colors.xcassets */; };
 		D88FA75F2F98F7D500859C04 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA75E2F98F7D500859C04 /* TimerService.swift */; };
@@ -54,7 +54,7 @@
 		D88FA7112F96B5AD00859C04 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		D88FA72F2F97783C00859C04 /* GameFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFactory.swift; sourceTree = "<group>"; };
 		D88FA73F2F97D90500859C04 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
-		D88FA74B2F989D5700859C04 /* InputSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSlot.swift; sourceTree = "<group>"; };
+		D88FA74B2F989D5700859C04 /* InputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBox.swift; sourceTree = "<group>"; };
 		D88FA74E2F98A0AC00859C04 /* AppButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButtonStyle.swift; sourceTree = "<group>"; };
 		D88FA7542F98A52400859C04 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D88FA75E2F98F7D500859C04 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 		D88FA74A2F98266800859C04 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D88FA74B2F989D5700859C04 /* InputSlot.swift */,
+				D88FA74B2F989D5700859C04 /* InputBox.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -365,7 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D88FA74C2F989D5700859C04 /* InputSlot.swift in Sources */,
+				D88FA74C2F989D5700859C04 /* InputBox.swift in Sources */,
 				D88FA7712F99458200859C04 /* GameService.swift in Sources */,
 				D88FA7052F96B4E100859C04 /* RootView.swift in Sources */,
 				D88FA70A2F96B52000859C04 /* GameView.swift in Sources */,

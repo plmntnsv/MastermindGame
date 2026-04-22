@@ -8,16 +8,18 @@
 import Foundation
 import SwiftUI
 
-
 @Observable
 final class GameViewModel {
-    var remainingTime: Int = 60
+    var remainingTime = 60
     let totalTime = 60
-    var playerInput: [InputSlot] = []
-    let secretCount: Int
-    var isGameRunning = false
+    var playerInput: [InputBox] = []
+    let secretLength = 4
     
-    private(set) var secretLetters: [String] = []
+    private(set) var isGameRunning = false
+    private var secretLetters: [String] = []
+    
+    // added this for faster testing purposes
+    var debugSecretLetters: [String] { secretLetters }
     
     private var router: AppRouter
     private let timerService: TimerService
@@ -27,14 +29,13 @@ final class GameViewModel {
         self.router = router
         self.timerService = timerService
         self.gameService = gameService
-        self.secretCount = gameService.secretCount
         resetPlayerInputs()
     }
     
     func startGame() {
         guard !isGameRunning else { return }
         
-        secretLetters = gameService.generateSecret()
+        secretLetters = gameService.generateSecret(length: secretLength)
         resetPlayerInputs()
         
         print(secretLetters)
@@ -49,6 +50,10 @@ final class GameViewModel {
     }
     
     func onCheckTapped() {
+        guard playerInput.allSatisfy({ !$0.text.isEmpty }) else {
+            return
+        }
+        
         playerInput = gameService.validate(input: playerInput, against: secretLetters)
         
         if playerInput.allSatisfy({ $0.state == .correct }) {
@@ -56,13 +61,12 @@ final class GameViewModel {
         }
     }
     
-    func colorForInputSlot(at index: Int) -> Color {
+    func colorForInputBox(at index: Int) -> Color {
         guard index >= 0 && index < playerInput.count else {
             return .white
         }
         
-        let state = playerInput[index].state
-        switch state {
+        switch playerInput[index].state {
         case .empty:
             return .white
         case .correct:
@@ -75,7 +79,7 @@ final class GameViewModel {
     }
     
     private func resetPlayerInputs() {
-        playerInput = (0..<secretCount).map { _ in .init() }
+        playerInput = (0..<secretLength).map { _ in .init() }
     }
     
     private func onGameEnd(isSuccess: Bool) {

@@ -18,6 +18,7 @@ struct AppButtonStyle: ButtonStyle {
             .background(configuration.isPressed ? backgroundColor.opacity(0.6) : backgroundColor)
             .foregroundStyle(foregroundColor)
             .clipShape(Capsule())
+            .overlay(Capsule().stroke(Color.white, lineWidth: 2))
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
             .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
     }

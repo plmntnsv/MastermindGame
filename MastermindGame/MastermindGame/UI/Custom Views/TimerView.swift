@@ -10,7 +10,6 @@ import SwiftUI
 struct TimerView: View {
     let totalTime: Int
     @Binding var remaining: Int
-    @Binding var shouldAnimate: Bool
 
     var progress: CGFloat {
         CGFloat(remaining) / CGFloat(totalTime)
@@ -25,10 +24,11 @@ struct TimerView: View {
                 .trim(from: 1 - progress, to: 1)
                 .stroke(progressColor, style: StrokeStyle(lineWidth: 8, lineCap: .butt))
                 .rotationEffect(.degrees(-90))
-                .animation(shouldAnimate ? .linear(duration: 1.1) : nil, value: progress)
+                .animation(.linear(duration: 1), value: progress)
             
             Text("\(remaining)")
                 .font(.system(size: 30, weight: .semibold))
+                .foregroundStyle(.black)
         }
         .frame(width: 80, height: 80)
     }
@@ -42,6 +42,5 @@ struct TimerView: View {
 
 #Preview {
     @Previewable @State var remaining: Int = 30
-    @Previewable @State var shouldAnimate = true
-    TimerView(totalTime: 60, remaining: $remaining, shouldAnimate: $shouldAnimate)
+    TimerView(totalTime: 60, remaining: $remaining)
 }

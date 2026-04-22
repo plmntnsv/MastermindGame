@@ -20,8 +20,4 @@ struct GameFactory {
         let vm = ResultViewModel(router: router, isSuccess: isSuccess, secret: secret)
         return ResultView(viewModel: vm)
     }
-    
-    static func makeRootView() {
-        
-    }
 }

@@ -15,13 +15,13 @@ enum AppRoute: Hashable {
 @Observable
 final class AppRouter {
     var path = NavigationPath()
-    static let shared = AppRouter()
     
     func push(_ route: AppRoute) {
         path.append(route)
     }
     
     func pop() {
+        guard !path.isEmpty else { return }
         path.removeLast()
     }
     

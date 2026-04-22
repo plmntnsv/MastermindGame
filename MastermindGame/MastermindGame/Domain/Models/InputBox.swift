@@ -1,5 +1,5 @@
 //
-//  InputSlot.swift
+//  InputBox.swift
 //  MastermindGame
 //
 //  Created by Plamen Atanasov on 22.04.26.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct InputSlot {
+struct InputBox {
     var text: String = ""
-    var state: InputSlotState = .empty
+    var state: InputBoxState = .empty
 }
 
-enum InputSlotState {
+enum InputBoxState {
     case empty
     case correct
     case misplaced

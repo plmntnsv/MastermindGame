@@ -26,13 +26,14 @@ final class GameTimerService: TimerService {
         remaining = duration
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            self.remaining -= 1
             onTick(self.remaining)
             
-            if self.remaining < 0 {
+            if self.remaining <= 0 {
                 self.stop()
                 completion()
             }
+            
+            self.remaining -= 1
         }
     }
 
