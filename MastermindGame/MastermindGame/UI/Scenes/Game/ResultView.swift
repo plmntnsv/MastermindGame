@@ -12,16 +12,17 @@ struct ResultView: View {
     
     var body: some View {
         VStack {
-            Text(viewModel.isSuccess ? "SUCCESS" : "FAILURE")
+            Text(viewModel.isSuccess ? "You've guessed it! Good job!" : "You've failed!")
                 .font(.largeTitle)
                 .bold()
             Button("Retry") {
                 viewModel.onRetryTapped()
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(AppButtonStyle(backgroundColor: .orange))
             .padding()
         }
         .navigationBarBackButtonHidden()
+        .background(Color.appBackgroundMain)
     }
 }
 

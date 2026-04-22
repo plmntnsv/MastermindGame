@@ -9,31 +9,6 @@ import Foundation
 import SwiftUI
 
 
-struct InputSlot {
-    var text: String
-    var state: SlotState
-    
-    enum SlotState {
-        case empty
-        case correct
-        case misplaced
-        case wrong
-        
-        var color: Color {
-            switch self {
-            case .empty:
-                return .clear
-            case .correct:
-                return .green
-            case .misplaced:
-                return .orange
-            case .wrong:
-                return .red
-            }
-        }
-    }
-}
-
 @Observable
 final class GameViewModel {
     var router: AppRouter
@@ -57,6 +32,7 @@ final class GameViewModel {
     }
     
     func onCheckTapped() {
+        // TODO: mark letter as wrong if already matched
         for index in playerInput.indices {
             if playerInput[index].text == targetText[index] {
                 playerInput[index].state = .correct
@@ -65,6 +41,24 @@ final class GameViewModel {
             } else {
                 playerInput[index].state = .wrong
             }
+        }
+    }
+    
+    func colorForInputSlot(at index: Int) -> Color {
+        guard index >= 0 && index < playerInput.count else {
+            return .white
+        }
+        
+        let state = playerInput[index].state
+        switch state {
+        case .empty:
+            return .white
+        case .correct:
+            return .green
+        case .misplaced:
+            return .orange
+        case .wrong:
+            return .red
         }
     }
     

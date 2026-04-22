@@ -13,45 +13,49 @@ struct GameView: View {
     
     var body: some View {
         VStack {
-            Text("\(viewModel.targetText)")
             Text("Mastermind Game")
                 .font(.largeTitle)
                 .bold()
+                .padding([.top, .bottom], 20)
             
             HStack(spacing: 10) {
                 ForEach(0..<viewModel.textCount, id: \.self) { index in
                     TextField("", text: $viewModel.playerInput[index].text)
                         .multilineTextAlignment(.center)
                         .frame(width: 50, height: 50)
-                        .background(viewModel.playerInput[index].state.color)
                         .focused($focusedIndex, equals: index)
-                        .onChange(of: viewModel.playerInput[index].text) { _, new in
-                            handleInput(new, index: index)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.black, lineWidth: 1)
+                                .fill(viewModel.colorForInputSlot(at: index))
+                        )
+                        .onChange(of: viewModel.playerInput[index].text) { _, newText in
+                            if newText.count > 1 {
+                                viewModel.playerInput[index].text = String(newText.prefix(1))
+                            } else if newText.count == 1 {
+                                if index < viewModel.textCount {
+                                    focusedIndex = index + 1
+                                }
+                            }
                         }
                 }
                 
                 Button("Check") {
                     viewModel.onCheckTapped()
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(AppButtonStyle())
             }
             
             Spacer()
+            
+            Text("\(viewModel.targetText.joined(separator: ", "))")
+                .padding()
         }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.appBackgroundMain)
         .onAppear {
             viewModel.generateTargetText()
             focusedIndex = 0
-        }
-    }
-    
-    func handleInput(_ text: String, index: Int) {
-        if text.count > 1 {
-            viewModel.playerInput[index].text = String(text.prefix(1))
-        } else if text.count == 1 {
-            if index < viewModel.textCount {
-                focusedIndex = index + 1
-            }
         }
     }
 }
