@@ -21,6 +21,7 @@
 		D88FA7552F98A52400859C04 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D88FA7542F98A52400859C04 /* Colors.xcassets */; };
 		D88FA75F2F98F7D500859C04 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA75E2F98F7D500859C04 /* TimerService.swift */; };
 		D88FA7682F992EF900859C04 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA7672F992EF900859C04 /* TimerView.swift */; };
+		D88FA7712F99458200859C04 /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA7702F99458200859C04 /* GameService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		D88FA7542F98A52400859C04 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D88FA75E2F98F7D500859C04 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
 		D88FA7672F992EF900859C04 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		D88FA7702F99458200859C04 /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -121,7 +123,6 @@
 		D88FA7032F96B4E100859C04 /* MastermindGame */ = {
 			isa = PBXGroup;
 			children = (
-				D88FA75C2F98F7C400859C04 /* Data */,
 				D88FA7492F98266100859C04 /* Domain */,
 				D88FA72A2F9775F100859C04 /* UI */,
 				D88FA7002F96B4E100859C04 /* Assets.xcassets */,
@@ -162,10 +163,10 @@
 		D88FA72A2F9775F100859C04 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				D88FA7662F992EED00859C04 /* Custom Views */,
-				D88FA74D2F98A09300859C04 /* Modifiers */,
-				D88FA71B2F96BA0400859C04 /* Router */,
 				D88FA72E2F97783500859C04 /* Factories */,
+				D88FA71B2F96BA0400859C04 /* Router */,
+				D88FA74D2F98A09300859C04 /* Modifiers */,
+				D88FA7662F992EED00859C04 /* Custom Views */,
 				D88FA7072F96B4E400859C04 /* Scenes */,
 			);
 			path = UI;
@@ -182,6 +183,7 @@
 		D88FA7492F98266100859C04 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				D88FA76F2F99457800859C04 /* Services */,
 				D88FA74A2F98266800859C04 /* Models */,
 			);
 			path = Domain;
@@ -203,28 +205,21 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
-		D88FA75C2F98F7C400859C04 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				D88FA75D2F98F7C900859C04 /* Services */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		D88FA75D2F98F7C900859C04 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				D88FA75E2F98F7D500859C04 /* TimerService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		D88FA7662F992EED00859C04 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
 				D88FA7672F992EF900859C04 /* TimerView.swift */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		D88FA76F2F99457800859C04 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D88FA7702F99458200859C04 /* GameService.swift */,
+				D88FA75E2F98F7D500859C04 /* TimerService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D88FA74C2F989D5700859C04 /* InputSlot.swift in Sources */,
+				D88FA7712F99458200859C04 /* GameService.swift in Sources */,
 				D88FA7052F96B4E100859C04 /* RootView.swift in Sources */,
 				D88FA70A2F96B52000859C04 /* GameView.swift in Sources */,
 				D88FA7302F97783C00859C04 /* GameFactory.swift in Sources */,
