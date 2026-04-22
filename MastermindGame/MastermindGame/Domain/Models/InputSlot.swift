@@ -8,8 +8,8 @@
 import Foundation
 
 struct InputSlot {
-    var text: String
-    var state: InputSlotState
+    var text: String = ""
+    var state: InputSlotState = .empty
 }
 
 enum InputSlotState {

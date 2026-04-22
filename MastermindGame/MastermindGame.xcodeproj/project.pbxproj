@@ -19,6 +19,7 @@
 		D88FA74C2F989D5700859C04 /* InputSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA74B2F989D5700859C04 /* InputSlot.swift */; };
 		D88FA74F2F98A0AC00859C04 /* AppButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA74E2F98A0AC00859C04 /* AppButtonStyle.swift */; };
 		D88FA7552F98A52400859C04 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D88FA7542F98A52400859C04 /* Colors.xcassets */; };
+		D88FA75F2F98F7D500859C04 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA75E2F98F7D500859C04 /* TimerService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		D88FA74B2F989D5700859C04 /* InputSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSlot.swift; sourceTree = "<group>"; };
 		D88FA74E2F98A0AC00859C04 /* AppButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButtonStyle.swift; sourceTree = "<group>"; };
 		D88FA7542F98A52400859C04 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		D88FA75E2F98F7D500859C04 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -117,6 +119,7 @@
 		D88FA7032F96B4E100859C04 /* MastermindGame */ = {
 			isa = PBXGroup;
 			children = (
+				D88FA75C2F98F7C400859C04 /* Data */,
 				D88FA7492F98266100859C04 /* Domain */,
 				D88FA72A2F9775F100859C04 /* UI */,
 				D88FA7002F96B4E100859C04 /* Assets.xcassets */,
@@ -195,6 +198,22 @@
 				D88FA74E2F98A0AC00859C04 /* AppButtonStyle.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		D88FA75C2F98F7C400859C04 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D88FA75D2F98F7C900859C04 /* Services */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		D88FA75D2F98F7C900859C04 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D88FA75E2F98F7D500859C04 /* TimerService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,6 +365,7 @@
 				D88FA7302F97783C00859C04 /* GameFactory.swift in Sources */,
 				D88FA74F2F98A0AC00859C04 /* AppButtonStyle.swift in Sources */,
 				D88FA7402F97D90500859C04 /* ResultViewModel.swift in Sources */,
+				D88FA75F2F98F7D500859C04 /* TimerService.swift in Sources */,
 				D88FA70E2F96B55200859C04 /* ResultView.swift in Sources */,
 				D88FA7122F96B5AD00859C04 /* AppRouter.swift in Sources */,
 				D88FA70C2F96B54300859C04 /* GameViewModel.swift in Sources */,

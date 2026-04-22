@@ -9,7 +9,7 @@ import Foundation
 
 struct GameFactory {
     static func makeGameView(router: AppRouter) -> GameView {
-        let vm = GameViewModel(router: router)
+        let vm = GameViewModel(router: router, timerService: GameTimerService())
         return GameView(viewModel: vm)
     }
     

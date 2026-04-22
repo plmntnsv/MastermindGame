@@ -11,54 +11,68 @@ import SwiftUI
 
 @Observable
 final class GameViewModel {
-    var router: AppRouter
-    let textCount: Int
+    var remainingTime: Int = 60
+    var playerInput: [InputSlot] = []
+    let secretCount: Int
     
-    var playerInput: [InputSlot]
+    private(set) var isGameRunning = false
+    private(set) var secretLetters: [String] = []
     
-    private(set) var targetLetters: [String] = []
+    private let totalRemainingTime = 60
     private let characters: [String] = (65...90).map { String(UnicodeScalar($0)) } // A to Z
     
-    init(router: AppRouter, textCount: Int = 4) {
+    private var router: AppRouter
+    private let timerService: TimerService
+    
+    init(router: AppRouter, timerService: TimerService, secretCount: Int = 4) {
         self.router = router
-        self.textCount = textCount
-        playerInput = (0..<textCount).map { _ in .init(text: "", state: .empty) }
+        self.timerService = timerService
+        self.secretCount = secretCount
+        resetPlayerInputs()
     }
     
-    func generateTargetText() {
-        targetLetters = (0..<textCount).map { _ in characters.randomElement()! }
+    func startGame() {
+        guard !isGameRunning else { return }
         
-        print(targetLetters)
+        secretLetters = (0..<secretCount).map { _ in characters.randomElement()! }
+        resetPlayerInputs()
+        
+        print(secretLetters)
+        
+        isGameRunning = true
+        
+        timerService.start(duration: self.remainingTime) { [weak self] remainingTime in
+            self?.remainingTime = remainingTime
+        } completion: { [weak self] in
+            self?.onGameEnd(isSuccess: false)
+        }
     }
     
     func onCheckTapped() {
-        var targetCopy = targetLetters
+        var secretCopy = secretLetters
         
-        for index in 0..<textCount {
+        for index in 0..<secretCount {
             let letter = playerInput[index].text
             
-            if letter == targetCopy[index] {
+            if letter == secretCopy[index] {
                 playerInput[index].state = .correct
-                targetCopy[index] = ""
+                secretCopy[index] = ""
             } else {
                 playerInput[index].state = .wrong
             }
         }
         
-        for index in 0..<textCount {
+        for index in 0..<secretCount {
             if playerInput[index].state == .correct {
                 continue
             }
             
             let letter = playerInput[index].text
             
-            if targetCopy.contains(letter) && !letter.isEmpty {
+            if secretCopy.contains(letter) && !letter.isEmpty {
                 playerInput[index].state = .misplaced
             }
         }
-        
-        print(targetCopy)
-        print(targetLetters)
     }
     
     func colorForInputSlot(at index: Int) -> Color {
@@ -79,7 +93,16 @@ final class GameViewModel {
         }
     }
     
+    private func resetPlayerInputs() {
+        playerInput = (0..<secretCount).map { _ in .init() }
+    }
+    
     private func onGameEnd(isSuccess: Bool) {
+        isGameRunning = false
+        
+        timerService.stop()
+        remainingTime = totalRemainingTime
+        
         router.push(.result(success: isSuccess))
     }
 }

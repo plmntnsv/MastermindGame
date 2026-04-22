@@ -22,6 +22,7 @@ struct ResultView: View {
             .padding()
         }
         .navigationBarBackButtonHidden()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.appBackgroundMain)
     }
 }
