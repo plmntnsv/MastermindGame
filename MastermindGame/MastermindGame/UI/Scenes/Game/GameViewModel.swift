@@ -16,7 +16,7 @@ final class GameViewModel {
     
     var playerInput: [InputSlot]
     
-    private(set) var targetText: [String] = []
+    private(set) var targetLetters: [String] = []
     private let characters: [String] = (65...90).map { String(UnicodeScalar($0)) } // A to Z
     
     init(router: AppRouter, textCount: Int = 4) {
@@ -26,22 +26,39 @@ final class GameViewModel {
     }
     
     func generateTargetText() {
-        targetText = (0..<textCount).map { _ in characters.randomElement()! }
+        targetLetters = (0..<textCount).map { _ in characters.randomElement()! }
         
-        print(targetText)
+        print(targetLetters)
     }
     
     func onCheckTapped() {
-        // TODO: mark letter as wrong if already matched
-        for index in playerInput.indices {
-            if playerInput[index].text == targetText[index] {
+        var targetCopy = targetLetters
+        
+        for index in 0..<textCount {
+            let letter = playerInput[index].text
+            
+            if letter == targetCopy[index] {
                 playerInput[index].state = .correct
-            } else if targetText.contains(playerInput[index].text) {
-                playerInput[index].state = .misplaced
+                targetCopy[index] = ""
             } else {
                 playerInput[index].state = .wrong
             }
         }
+        
+        for index in 0..<textCount {
+            if playerInput[index].state == .correct {
+                continue
+            }
+            
+            let letter = playerInput[index].text
+            
+            if targetCopy.contains(letter) && !letter.isEmpty {
+                playerInput[index].state = .misplaced
+            }
+        }
+        
+        print(targetCopy)
+        print(targetLetters)
     }
     
     func colorForInputSlot(at index: Int) -> Color {

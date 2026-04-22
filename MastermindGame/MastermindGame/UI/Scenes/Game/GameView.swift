@@ -22,8 +22,9 @@ struct GameView: View {
                 ForEach(0..<viewModel.textCount, id: \.self) { index in
                     TextField("", text: $viewModel.playerInput[index].text)
                         .multilineTextAlignment(.center)
-                        .frame(width: 50, height: 50)
+                        .textCase(.uppercase)
                         .focused($focusedIndex, equals: index)
+                        .frame(width: 50, height: 50)
                         .background(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.black, lineWidth: 1)
@@ -48,7 +49,7 @@ struct GameView: View {
             
             Spacer()
             
-            Text("\(viewModel.targetText.joined(separator: ", "))")
+            Text("\(viewModel.targetLetters.joined(separator: ", "))")
                 .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
