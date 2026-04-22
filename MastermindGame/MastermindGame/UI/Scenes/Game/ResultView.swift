@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ResultView: View {
-    @State var viewModel: ResultViewModel
+    @State var viewModel: ResultViewModelType
     @State private var isVisible = false
     @State private var isScaled = false
     

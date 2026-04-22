@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GameView: View {
-    @State var viewModel: GameViewModel
+    @State var viewModel: GameViewModelType
     @FocusState private var focusedIndex: Int?
     
     var body: some View {

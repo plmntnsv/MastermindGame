@@ -8,8 +8,21 @@
 import Foundation
 import SwiftUI
 
+protocol GameViewModelType: AnyObject {
+    var remainingTime: Int { get set }
+    var totalTime: Int { get }
+    var playerInput: [InputBox] { get set }
+    var secretLength: Int { get }
+    var isGameRunning: Bool { get }
+    var debugSecretLetters: [String] { get }
+    
+    func startGame()
+    func onCheckTapped()
+    func colorForInputBox(at index: Int) -> Color
+}
+
 @Observable
-final class GameViewModel {
+final class GameViewModel: GameViewModelType {
     var remainingTime = 60
     let totalTime = 60
     var playerInput: [InputBox] = []

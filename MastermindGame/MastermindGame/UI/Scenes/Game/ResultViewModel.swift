@@ -7,8 +7,14 @@
 
 import Foundation
 
+protocol ResultViewModelType: AnyObject {
+    var isSuccess: Bool { get }
+    var secret: [String] { get }
+    func onRetryTapped()
+}
+
 @Observable
-final class ResultViewModel {
+final class ResultViewModel: ResultViewModelType {
     let router: AppRouter
     let isSuccess: Bool
     let secret: [String]
