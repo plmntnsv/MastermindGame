@@ -9,7 +9,7 @@ import SwiftUI
 
 enum AppRoute: Hashable {
     case game
-    case result(success: Bool)
+    case result(success: Bool, secret: [String])
 }
 
 @Observable

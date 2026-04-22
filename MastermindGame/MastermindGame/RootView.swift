@@ -26,8 +26,8 @@ extension RootView {
         switch route {
         case .game:
             GameFactory.makeGameView(router: router)
-        case .result(let success):
-            GameFactory.makeResultView(router: router, isSuccess: success)
+        case .result(let success, let secret):
+            GameFactory.makeResultView(router: router, isSuccess: success, secret: secret)
         }
     }
 }

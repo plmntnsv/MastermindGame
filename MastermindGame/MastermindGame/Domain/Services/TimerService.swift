@@ -29,7 +29,7 @@ final class GameTimerService: TimerService {
             self.remaining -= 1
             onTick(self.remaining)
             
-            if self.remaining <= 0 {
+            if self.remaining < 0 {
                 self.stop()
                 completion()
             }

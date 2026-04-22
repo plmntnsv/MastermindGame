@@ -17,7 +17,11 @@ struct GameView: View {
                 .font(.largeTitle)
                 .bold()
             
-            TimerView(totalTime: viewModel.totalTime, remaining: $viewModel.remainingTime)
+            TimerView(
+                totalTime: viewModel.totalTime,
+                remaining: $viewModel.remainingTime,
+                shouldAnimate: $viewModel.isGameRunning
+            )
             
             HStack(spacing: 10) {
                 ForEach(0..<viewModel.secretCount, id: \.self) { index in
@@ -61,10 +65,15 @@ struct GameView: View {
         }
         .onAppear {
             viewModel.startGame()
+            focusedIndex = 0
         }
     }
 }
 
 #Preview {
-    GameView(viewModel: GameViewModel(router: AppRouter(), timerService: GameTimerService()))
+    GameView(viewModel: GameViewModel(
+        router: AppRouter(),
+        timerService: GameTimerService(),
+        gameService: GameService())
+    )
 }

@@ -15,26 +15,26 @@ final class GameViewModel {
     let totalTime = 60
     var playerInput: [InputSlot] = []
     let secretCount: Int
+    var isGameRunning = false
     
-    private(set) var isGameRunning = false
     private(set) var secretLetters: [String] = []
-    
-    private let characters: [String] = (65...90).map { String(UnicodeScalar($0)) } // A to Z
     
     private var router: AppRouter
     private let timerService: TimerService
+    private let gameService: GameServiceProtocol
     
-    init(router: AppRouter, timerService: TimerService, secretCount: Int = 4) {
+    init(router: AppRouter, timerService: TimerService, gameService: GameServiceProtocol) {
         self.router = router
         self.timerService = timerService
-        self.secretCount = secretCount
+        self.gameService = gameService
+        self.secretCount = gameService.secretCount
         resetPlayerInputs()
     }
     
     func startGame() {
         guard !isGameRunning else { return }
         
-        secretLetters = (0..<secretCount).map { _ in characters.randomElement()! }
+        secretLetters = gameService.generateSecret()
         resetPlayerInputs()
         
         print(secretLetters)
@@ -42,36 +42,17 @@ final class GameViewModel {
         isGameRunning = true
         
         timerService.start(duration: self.remainingTime) { [weak self] remainingTime in
-            self?.remainingTime = remainingTime
+            self?.remainingTime = max(remainingTime, 0)
         } completion: { [weak self] in
             self?.onGameEnd(isSuccess: false)
         }
     }
     
     func onCheckTapped() {
-        var secretCopy = secretLetters
+        playerInput = gameService.validate(input: playerInput, against: secretLetters)
         
-        for index in 0..<secretCount {
-            let letter = playerInput[index].text
-            
-            if letter == secretCopy[index] {
-                playerInput[index].state = .correct
-                secretCopy[index] = ""
-            } else {
-                playerInput[index].state = .wrong
-            }
-        }
-        
-        for index in 0..<secretCount {
-            if playerInput[index].state == .correct {
-                continue
-            }
-            
-            let letter = playerInput[index].text
-            
-            if secretCopy.contains(letter) && !letter.isEmpty {
-                playerInput[index].state = .misplaced
-            }
+        if playerInput.allSatisfy({ $0.state == .correct }) {
+            onGameEnd(isSuccess: true)
         }
     }
     
@@ -103,6 +84,6 @@ final class GameViewModel {
         timerService.stop()
         remainingTime = totalTime
         
-        router.push(.result(success: isSuccess))
+        router.push(.result(success: isSuccess, secret: secretLetters))
     }
 }
