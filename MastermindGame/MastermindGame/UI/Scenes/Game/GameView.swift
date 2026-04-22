@@ -12,15 +12,12 @@ struct GameView: View {
     @FocusState private var focusedIndex: Int?
     
     var body: some View {
-        VStack {
+        VStack(spacing: 25) {
             Text("Mastermind Game")
                 .font(.largeTitle)
                 .bold()
-                .padding([.top, .bottom], 20)
             
-            Text("\(viewModel.remainingTime)")
-                .font(.system(size: 30))
-                .bold()
+            TimerView(totalTime: viewModel.totalTime, remaining: $viewModel.remainingTime)
             
             HStack(spacing: 10) {
                 ForEach(0..<viewModel.secretCount, id: \.self) { index in
@@ -31,7 +28,7 @@ struct GameView: View {
                         .frame(width: 50, height: 50)
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 1)
+                                .stroke(Color.black, lineWidth: 5)
                                 .fill(viewModel.colorForInputSlot(at: index))
                         )
                         .onChange(of: viewModel.playerInput[index].text) { _, newText in
@@ -55,6 +52,7 @@ struct GameView: View {
                 .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.top, 30)
         .background(Color.appBackgroundMain)
         .onChange(of: viewModel.isGameRunning) { _, isRunning in
             if !isRunning {

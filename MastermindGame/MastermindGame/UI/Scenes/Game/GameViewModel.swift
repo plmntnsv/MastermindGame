@@ -12,13 +12,13 @@ import SwiftUI
 @Observable
 final class GameViewModel {
     var remainingTime: Int = 60
+    let totalTime = 60
     var playerInput: [InputSlot] = []
     let secretCount: Int
     
     private(set) var isGameRunning = false
     private(set) var secretLetters: [String] = []
     
-    private let totalRemainingTime = 60
     private let characters: [String] = (65...90).map { String(UnicodeScalar($0)) } // A to Z
     
     private var router: AppRouter
@@ -101,7 +101,7 @@ final class GameViewModel {
         isGameRunning = false
         
         timerService.stop()
-        remainingTime = totalRemainingTime
+        remainingTime = totalTime
         
         router.push(.result(success: isSuccess))
     }
