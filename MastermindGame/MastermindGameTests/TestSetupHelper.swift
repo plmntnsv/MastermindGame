@@ -60,12 +60,14 @@ final class TimerServiceMock: TimerService {
 final class GameServiceMock: GameServiceProtocol {
     var secretMock: [Character] = ["A", "B", "C", "D"]
     var validateHandler: (([Character], [Character]) -> [InputBox])?
+    var validateCalls: Int = 0
 
     func generateSecret(length: Int) -> Result<[Character], GameError> {
         .success(Array(secretMock.prefix(length)))
     }
 
     func validate(input: [Character], against secret: [Character]) -> Result<[InputBox], GameError> {
+        validateCalls += 1
         if let handler = validateHandler {
             return .success(handler(input, secret))
         }

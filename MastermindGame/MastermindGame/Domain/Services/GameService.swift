@@ -40,9 +40,8 @@ final class GameService: GameServiceProtocol {
         var result = input.map { InputBox(letter:$0, state: .empty) }
         var frequency: [Character: Int] = [:]
         
-        // first pass to get all the correct values
-        // and to mark the rest as wrong
-        // and icrease secret letters frequencies
+        // first pass to get all the .correct values
+        // and mark the rest as .wrong
         for i in 0..<input.count {
             if input[i] == secret[i] {
                 result[i].state = .correct

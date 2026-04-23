@@ -73,7 +73,7 @@ final class GameViewModel: GameViewModelType {
     }
     
     func onCheckTapped() {
-        guard playerInput.allSatisfy({ !$0.isEmpty }) else {
+        guard playerInput.allSatisfy({ !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }) else {
             return
         }
         

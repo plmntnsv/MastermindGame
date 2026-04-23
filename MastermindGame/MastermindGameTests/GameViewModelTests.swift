@@ -76,6 +76,45 @@ struct GameViewModelTests {
         #expect(router.pushedRoutes.isEmpty)
     }
     
+    @Test("onCheckTapped - does nothing when one input is whitespace")
+    func testOnCheckTappedWhitespace() async throws {
+        let router = AppRouterMock()
+        let timerService = TimerServiceMock()
+        let gameService = GameServiceMock()
+        let vm = GameViewModel(router: router, timerService: timerService, gameService: gameService)
+        
+        let validateCountBefore = gameService.validateCalls
+        vm.startGame()
+        vm.playerInput = [" ", "A", "B", "C"]
+        
+        vm.onCheckTapped()
+        
+        let validateCountAfter = gameService.validateCalls
+        
+        #expect(validateCountBefore == 0)
+        #expect(validateCountBefore == validateCountAfter)
+        #expect(router.pushedRoutes.isEmpty)
+    }
+    
+    @Test("onCheckTapped - calls validate on successful input")
+    func testOnCheckTappedValidateCalled() async throws {
+        let router = AppRouterMock()
+        let timerService = TimerServiceMock()
+        let gameService = GameServiceMock()
+        let vm = GameViewModel(router: router, timerService: timerService, gameService: gameService)
+        
+        let validateCountBefore = gameService.validateCalls
+        vm.startGame()
+        vm.playerInput = gameService.secretMock.map { String($0) }
+        
+        vm.onCheckTapped()
+        
+        let validateCountAfter = gameService.validateCalls
+        
+        #expect(validateCountBefore == 0)
+        #expect(validateCountAfter == 1)
+    }
+    
     @Test("onCheckTapped - triggers success when all correct")
     func testOnCheckTappedSuccess() async throws {
         let router = AppRouterMock()
