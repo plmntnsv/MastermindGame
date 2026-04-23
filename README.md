@@ -1,14 +1,14 @@
 # MastermindGame
 
-It might seem like it is over engineered a bit but I tried to showcase as much as possible and build with the idea that it might expand in the future with more features.
+It might seem like it is over engineered a bit but I tried to showcase as much as possible and build with the idea that it might scale in the future with more features.
 
 ## Stack:
-SwiftUI + MVVM + Clean(but with missing layers)
+SwiftUI + MVVM + Clean (but with intentionally missing layers)
 
 ## Notes:
-Tested on both a physical device and simulator  
-I am printing the 4 letter secret as requested and I’ve also added it to the game screen as well for convenience.  
-There are some console warnings related to the keyboard
+- Tested on both a physical device and simulator  
+- I am printing the 4 letter secret as requested and I’ve also added it to the game screen as well for convenience.  
+- There are some console warnings related to the keyboard
 
 ## Things I would’ve added with more time:
 1. Custom app colors for light/dark themes  
