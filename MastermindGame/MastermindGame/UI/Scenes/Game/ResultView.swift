@@ -25,7 +25,7 @@ struct ResultView: View {
             
             Text(viewModel.isSuccess ?
                     "You've guessed it!" :
-                    "You've failed to guess:\n\(Text(viewModel.secret.joined(separator: " ")).bold())")
+                    "You've failed to guess:\n\(Text(viewModel.secretString).bold())")
                 .font(.title)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.black)

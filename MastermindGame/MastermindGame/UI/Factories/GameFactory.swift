@@ -16,7 +16,7 @@ struct GameFactory {
         return GameView(viewModel: vm)
     }
     
-    static func makeResultView(router: AppRouting, isSuccess: Bool, secret: [String]) -> ResultView {
+    static func makeResultView(router: AppRouting, isSuccess: Bool, secret: [Character]) -> ResultView {
         let vm = ResultViewModel(router: router, isSuccess: isSuccess, secret: secret)
         return ResultView(viewModel: vm)
     }

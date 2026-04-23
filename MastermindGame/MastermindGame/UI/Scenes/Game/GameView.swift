@@ -71,7 +71,7 @@ struct GameView: View {
     var boxesView: some View {
         HStack(spacing: 10) {
             ForEach(0..<viewModel.secretLength, id: \.self) { index in
-                TextField("", text: $viewModel.playerInput[index].text)
+                TextField("", text: $viewModel.playerInput[index])
                     .multilineTextAlignment(.center)
                     .textCase(.uppercase)
                     .textInputAutocapitalization(.characters)
@@ -85,17 +85,16 @@ struct GameView: View {
                             .stroke(Color.black, lineWidth: 5)
                             .fill(viewModel.colorForInputBox(at: index))
                     )
-                    .onChange(of: viewModel.playerInput[index].text) { _, newText in
+                    .onChange(of: viewModel.playerInput[index]) { _, newText in
                         let text = newText.uppercased()
                         
                         if text.count > 1 {
-                            viewModel.playerInput[index].text = String(text.prefix(1))
+                            viewModel.playerInput[index] = String(text.prefix(1))
                         } else {
-                            viewModel.playerInput[index].text = text
+                            viewModel.playerInput[index] = text
                         }
                         
-                        if viewModel.playerInput[index].text.count == 1 &&
-                           index < viewModel.secretLength - 1 {
+                        if viewModel.playerInput[index].count == 1 && index < viewModel.secretLength - 1 {
                             focusedIndex = index + 1
                         }
                     }
@@ -111,7 +110,7 @@ struct GameView: View {
     }
     
     var debugHintView: some View {
-        Text("\(viewModel.debugSecretLetters.joined(separator: ", "))")
+        Text("\(viewModel.debugSecretLetters.convertToString())")
             .padding()
             .foregroundStyle(.white)
     }

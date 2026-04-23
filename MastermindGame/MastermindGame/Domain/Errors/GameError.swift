@@ -10,7 +10,7 @@ import Foundation
 enum GameError: Error, Identifiable {
     case invalidSecretLength(actual: Int)
     case invalidInput
-    case invalidCharacterCount(char: String, at: Int)
+    case invalidInputLength
     case unexpectedError
     
     var id: String { errorMessage }
@@ -21,8 +21,8 @@ enum GameError: Error, Identifiable {
             return "Secret length should be at least 1 but was: \(actual)"
         case .invalidInput:
             return "Invalid input provided"
-        case .invalidCharacterCount(char: let char, at: let index):
-            return "Invalid '\(char)' at index \(index)"
+        case .invalidInputLength:
+            return "Invalid input. Should be 1 character."
         case .unexpectedError:
             return "Unexpected error occurred"
         }

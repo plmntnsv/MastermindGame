@@ -8,19 +8,19 @@
 import Foundation
 
 protocol GameServiceProtocol {
-    func generateSecret(length: Int) -> Result<[String], GameError>
-    func validate(input: [InputBox], against secret: [String]) -> Result<[InputBox], GameError>
+    func generateSecret(length: Int) -> Result<[Character], GameError>
+    func validate(input: [Character], against secret: [Character]) -> Result<[InputBox], GameError>
 }
 
 final class GameService: GameServiceProtocol {
-    private static let characters: [String] = (65...90).map { String(UnicodeScalar($0)) } // A to Z
+    private static let characters = (65...90).map { Character(UnicodeScalar($0)) } // A to Z
     
-    func generateSecret(length: Int) -> Result<[String], GameError> {
+    func generateSecret(length: Int) -> Result<[Character], GameError> {
         guard length > 0 else {
             return .failure(.invalidSecretLength(actual: length))
         }
         
-        var secret: [String] = []
+        var secret = [Character]()
         for _ in 0..<length {
             guard let random = Self.characters.randomElement() else {
                 return .failure(.unexpectedError)
@@ -32,25 +32,19 @@ final class GameService: GameServiceProtocol {
         return .success(secret)
     }
     
-    func validate(input: [InputBox], against secret: [String]) -> Result<[InputBox], GameError> {
+    func validate(input: [Character], against secret: [Character]) -> Result<[InputBox], GameError> {
         guard !input.isEmpty, input.count == secret.count else {
             return .failure(.invalidInput)
         }
         
-        let count = input.count
-        var result = input
-        var frequency: [String: Int] = [:]
+        var result = input.map { InputBox(letter:$0, state: .empty) }
+        var frequency: [Character: Int] = [:]
         
         // first pass to get all the correct values
         // and to mark the rest as wrong
-        for i in 0..<count {
-            let letter = result[i].text
-            
-            guard letter.count == 1 else {
-                return .failure(.invalidCharacterCount(char: letter, at: i))
-            }
-            
-            if letter == secret[i] {
+        // and icrease secret letters frequencies
+        for i in 0..<input.count {
+            if input[i] == secret[i] {
                 result[i].state = .correct
             } else {
                 result[i].state = .wrong
@@ -60,7 +54,7 @@ final class GameService: GameServiceProtocol {
         
         // second pass to match the misplaced values
         for i in result.indices where result[i].state == .wrong {
-            let letter = result[i].text
+            let letter = result[i].letter
             
             if let count = frequency[letter], count > 0 {
                 result[i].state = .misplaced

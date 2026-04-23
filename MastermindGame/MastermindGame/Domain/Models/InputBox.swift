@@ -8,7 +8,7 @@
 import Foundation
 
 struct InputBox {
-    var text: String = ""
+    var letter: Character = " "
     var state: InputBoxState = .empty
 }
 

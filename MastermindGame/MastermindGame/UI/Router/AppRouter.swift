@@ -16,7 +16,7 @@ protocol AppRouting {
 
 enum AppRoute: Hashable {
     case game
-    case result(success: Bool, secret: [String])
+    case result(success: Bool, secret: [Character])
 }
 
 @Observable

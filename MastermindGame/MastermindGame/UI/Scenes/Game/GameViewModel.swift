@@ -12,9 +12,9 @@ protocol GameViewModelType: AnyObject {
     var secretLength: Int { get }
     var totalTime: Int { get }
     var remainingTime: Int { get set }
-    var playerInput: [InputBox] { get set }
+    var playerInput: [String] { get set }
     var error: GameError? { get set }
-    var debugSecretLetters: [String] { get }
+    var debugSecretLetters: [Character] { get }
     var isGameRunning: Bool { get }
     
     func startGame()
@@ -24,17 +24,18 @@ protocol GameViewModelType: AnyObject {
 
 @Observable
 final class GameViewModel: GameViewModelType {
-    let secretLength = 4
-    let totalTime = 60
-    var remainingTime = 60
-    var playerInput: [InputBox] = []
+    let secretLength = AppConstant.lettersCount
+    let totalTime = AppConstant.gameTotalTime
+    var remainingTime = AppConstant.gameTotalTime
+    var playerInput: [String] = []
     var error: GameError?
     
     // added this for faster testing purposes
-    var debugSecretLetters: [String] { secretLetters }
+    var debugSecretLetters: [Character] { secretLetters }
     
     private(set) var isGameRunning = false
-    private var secretLetters: [String] = []
+    private var secretLetters: [Character] = []
+    private var inputBoxState: [InputBoxState] = []
     
     private var router: AppRouting
     private let timerService: TimerService
@@ -72,19 +73,29 @@ final class GameViewModel: GameViewModelType {
     }
     
     func onCheckTapped() {
-        guard playerInput.allSatisfy({ !$0.text.isEmpty }) else {
+        guard playerInput.allSatisfy({ !$0.isEmpty }) else {
             return
         }
         
-        switch gameService.validate(input: playerInput, against: secretLetters) {
+        guard playerInput.allSatisfy({ $0.count == 1  }) else {
+            error = .invalidInputLength
+            return
+        }
+        
+        let input = playerInput.map { Character($0) }
+        
+        switch gameService.validate(input: input, against: secretLetters) {
         case .success(let validatedInput):
-            playerInput = validatedInput
+            validatedInput.enumerated().forEach { index, result in
+                playerInput[index] = String(result.letter)
+                inputBoxState[index] = result.state
+            }
         case .failure(let error):
             self.error = error
             return
         }
         
-        if playerInput.allSatisfy({ $0.state == .correct }) {
+        if inputBoxState.allSatisfy({ $0 == .correct }) {
             onGameEnd(isSuccess: true)
         }
     }
@@ -94,7 +105,7 @@ final class GameViewModel: GameViewModelType {
             return .white
         }
         
-        switch playerInput[index].state {
+        switch inputBoxState[index] {
         case .empty:
             return .white
         case .correct:
@@ -107,7 +118,8 @@ final class GameViewModel: GameViewModelType {
     }
     
     private func resetPlayerInputs() {
-        playerInput = (0..<secretLength).map { _ in .init() }
+        playerInput = (0..<secretLength).map { _ in "" }
+        inputBoxState = (0..<secretLength).map { _ in .empty }
     }
     
     private func onGameEnd(isSuccess: Bool) {

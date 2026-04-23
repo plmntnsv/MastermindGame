@@ -9,7 +9,8 @@ import Foundation
 
 protocol ResultViewModelType: AnyObject {
     var isSuccess: Bool { get }
-    var secret: [String] { get }
+    var secret: [Character] { get }
+    var secretString: String { get }
     func onRetryTapped()
 }
 
@@ -17,9 +18,13 @@ protocol ResultViewModelType: AnyObject {
 final class ResultViewModel: ResultViewModelType {
     let router: AppRouting
     let isSuccess: Bool
-    let secret: [String]
+    let secret: [Character]
     
-    init(router: AppRouting, isSuccess: Bool, secret: [String]) {
+    var secretString: String {
+        secret.convertToString(separator: " ")
+    }
+    
+    init(router: AppRouting, isSuccess: Bool, secret: [Character]) {
         self.router = router
         self.isSuccess = isSuccess
         self.secret = secret

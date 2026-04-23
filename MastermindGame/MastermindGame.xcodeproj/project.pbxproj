@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D830E5622F9A6EED0053A8B6 /* Array+CharactersToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830E5612F9A6EED0053A8B6 /* Array+CharactersToString.swift */; };
+		D830E5732F9A7F6A0053A8B6 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D830E5722F9A7F6A0053A8B6 /* AppConstant.swift */; };
 		D88FA7042F96B4E100859C04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D88FA7002F96B4E100859C04 /* Assets.xcassets */; };
 		D88FA7052F96B4E100859C04 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA7012F96B4E100859C04 /* RootView.swift */; };
 		D88FA7062F96B4E100859C04 /* MastermindGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA7022F96B4E100859C04 /* MastermindGameApp.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D830E5612F9A6EED0053A8B6 /* Array+CharactersToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+CharactersToString.swift"; sourceTree = "<group>"; };
+		D830E5722F9A7F6A0053A8B6 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		D88FA6C82F96B48E00859C04 /* MastermindGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MastermindGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D88FA6D52F96B48F00859C04 /* MastermindGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MastermindGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D88FA6DF2F96B48F00859C04 /* MastermindGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MastermindGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +108,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D830E5602F9A6ED10053A8B6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D830E5612F9A6EED0053A8B6 /* Array+CharactersToString.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D830E5712F9A7F5D0053A8B6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D830E5722F9A7F6A0053A8B6 /* AppConstant.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		D88FA6BF2F96B48E00859C04 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +207,8 @@
 		D88FA7492F98266100859C04 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				D830E5712F9A7F5D0053A8B6 /* Helpers */,
+				D830E5602F9A6ED10053A8B6 /* Extensions */,
 				D88FA79E2F99FFA600859C04 /* Errors */,
 				D88FA76F2F99457800859C04 /* Services */,
 				D88FA74A2F98266800859C04 /* Models */,
@@ -390,10 +412,12 @@
 				D88FA7682F992EF900859C04 /* TimerView.swift in Sources */,
 				D88FA75F2F98F7D500859C04 /* TimerService.swift in Sources */,
 				D88FA7A02F9A038A00859C04 /* ErrorHandlingModifier.swift in Sources */,
+				D830E5622F9A6EED0053A8B6 /* Array+CharactersToString.swift in Sources */,
 				D88FA70E2F96B55200859C04 /* ResultView.swift in Sources */,
 				D88FA7122F96B5AD00859C04 /* AppRouter.swift in Sources */,
 				D88FA70C2F96B54300859C04 /* GameViewModel.swift in Sources */,
 				D88FA7062F96B4E100859C04 /* MastermindGameApp.swift in Sources */,
+				D830E5732F9A7F6A0053A8B6 /* AppConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
