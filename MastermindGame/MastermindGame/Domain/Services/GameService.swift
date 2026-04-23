@@ -13,7 +13,7 @@ protocol GameServiceProtocol {
 }
 
 final class GameService: GameServiceProtocol {
-    private static let characters = (65...70).map { Character(UnicodeScalar($0)) } // A to Z
+    private static let characters = (65...90).map { Character(UnicodeScalar($0)) } // A to Z
     
     func generateSecret(length: Int) -> Result<[Character], GameError> {
         guard length > 0 else {
