@@ -13,7 +13,7 @@ protocol GameServiceProtocol {
 }
 
 final class GameService: GameServiceProtocol {
-    private static let characters = (65...90).map { Character(UnicodeScalar($0)) } // A to Z
+    private static let characters = (65...70).map { Character(UnicodeScalar($0)) } // A to Z
     
     func generateSecret(length: Int) -> Result<[Character], GameError> {
         guard length > 0 else {
@@ -31,26 +31,23 @@ final class GameService: GameServiceProtocol {
         }
         
         var result = input.map { InputBox(letter:$0, state: .empty) }
-        var frequency: [Character: Int] = [:]
+        var secretSet = Set<Character>()
         
-        // first pass to get all the .correct values
+        // first pass to mark all the .correct letters
         // and mark the rest as .wrong
         for i in 0..<input.count {
             if input[i] == secret[i] {
                 result[i].state = .correct
             } else {
                 result[i].state = .wrong
-                frequency[secret[i], default: 0] += 1
+                secretSet.insert(secret[i])
             }
         }
         
-        // second pass to match the misplaced values
+        // second pass to match the misplaced letters
         for i in result.indices where result[i].state == .wrong {
-            let letter = result[i].letter
-            
-            if let count = frequency[letter], count > 0 {
+            if secretSet.contains(result[i].letter) {
                 result[i].state = .misplaced
-                frequency[letter] = count - 1
             }
         }
         

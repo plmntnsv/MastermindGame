@@ -154,13 +154,13 @@ struct GameServiceTests {
             Issue.record("Expected success for mixed input")
         }
         
-        secret = ["O", "Q", "C", "D"]
-        input = ["O", "Z", "Q", "Q"]
+        secret = ["A", "B", "C", "D"]
+        input = ["A", "F", "B", "B"]
         if case .success(let result) = service.validate(input: input, against: secret) {
             #expect(result[0].state == .correct)
             #expect(result[1].state == .wrong)
             #expect(result[2].state == .misplaced)
-            #expect(result[3].state == .wrong)
+            #expect(result[3].state == .misplaced)
         } else {
             Issue.record("Expected success for mixed input")
         }
