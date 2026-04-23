@@ -15,11 +15,11 @@ protocol ResultViewModelType: AnyObject {
 
 @Observable
 final class ResultViewModel: ResultViewModelType {
-    let router: AppRouter
+    let router: AppRouting
     let isSuccess: Bool
     let secret: [String]
     
-    init(router: AppRouter, isSuccess: Bool, secret: [String]) {
+    init(router: AppRouting, isSuccess: Bool, secret: [String]) {
         self.router = router
         self.isSuccess = isSuccess
         self.secret = secret

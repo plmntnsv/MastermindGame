@@ -7,13 +7,20 @@
 
 import SwiftUI
 
+protocol AppRouting {
+    var path: NavigationPath { get set }
+    func push(_ route: AppRoute)
+    func pop()
+    func popToRoot()
+}
+
 enum AppRoute: Hashable {
     case game
     case result(success: Bool, secret: [String])
 }
 
 @Observable
-final class AppRouter {
+final class AppRouter: AppRouting {
     var path = NavigationPath()
     
     func push(_ route: AppRoute) {

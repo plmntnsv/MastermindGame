@@ -13,6 +13,7 @@ protocol GameViewModelType: AnyObject {
     var totalTime: Int { get }
     var remainingTime: Int { get set }
     var playerInput: [InputBox] { get set }
+    var error: AppError? { get set }
     var debugSecretLetters: [String] { get }
     var isGameRunning: Bool { get }
     
@@ -27,6 +28,7 @@ final class GameViewModel: GameViewModelType {
     let totalTime = 60
     var remainingTime = 60
     var playerInput: [InputBox] = []
+    var error: AppError?
     
     // added this for faster testing purposes
     var debugSecretLetters: [String] { secretLetters }
@@ -34,11 +36,11 @@ final class GameViewModel: GameViewModelType {
     private(set) var isGameRunning = false
     private var secretLetters: [String] = []
     
-    private var router: AppRouter
+    private var router: AppRouting
     private let timerService: TimerService
     private let gameService: GameServiceProtocol
     
-    init(router: AppRouter, timerService: TimerService, gameService: GameServiceProtocol) {
+    init(router: AppRouting, timerService: TimerService, gameService: GameServiceProtocol) {
         self.router = router
         self.timerService = timerService
         self.gameService = gameService
@@ -48,7 +50,14 @@ final class GameViewModel: GameViewModelType {
     func startGame() {
         guard !isGameRunning else { return }
         
-        secretLetters = gameService.generateSecret(length: secretLength)
+        switch gameService.generateSecret(length: secretLength) {
+        case .success(let secret):
+            secretLetters = secret
+        case .failure(let error):
+            self.error = error
+            return
+        }
+        
         resetPlayerInputs()
         
         print(secretLetters)
@@ -67,7 +76,13 @@ final class GameViewModel: GameViewModelType {
             return
         }
         
-        playerInput = gameService.validate(input: playerInput, against: secretLetters)
+        switch gameService.validate(input: playerInput, against: secretLetters) {
+        case .success(let validatedInput):
+            playerInput = validatedInput
+        case .failure(let error):
+            self.error = error
+            return
+        }
         
         if playerInput.allSatisfy({ $0.state == .correct }) {
             onGameEnd(isSuccess: true)

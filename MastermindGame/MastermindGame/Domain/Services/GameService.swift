@@ -8,24 +8,25 @@
 import Foundation
 
 protocol GameServiceProtocol {
-    func generateSecret(length: Int) -> [String]
-    func validate(input: [InputBox], against secret: [String]) -> [InputBox]
+    func generateSecret(length: Int) -> Result<[String], AppError>
+    func validate(input: [InputBox], against secret: [String]) -> Result<[InputBox], AppError>
 }
 
 final class GameService: GameServiceProtocol {
     private let characters: [String] = (65...90).map { String(UnicodeScalar($0)) } // A to Z
     
-    func generateSecret(length: Int) -> [String] {
+    func generateSecret(length: Int) -> Result<[String], AppError> {
         guard length > 0 else {
-            return []
+            return .failure(.invalidLength(expected: "At least 1", actual: "\(length)"))
         }
         
-        return (0..<length).map { _ in characters.randomElement()! }
+        let secret = (0..<length).compactMap { _ in characters.randomElement() }
+        return .success(secret)
     }
     
-    func validate(input: [InputBox], against secret: [String]) -> [InputBox] {
+    func validate(input: [InputBox], against secret: [String]) -> Result<[InputBox], AppError> {
         guard !input.isEmpty, input.count == secret.count else {
-            return []
+            return .failure(.inputMissmatch)
         }
         
         let count = input.count
@@ -33,9 +34,13 @@ final class GameService: GameServiceProtocol {
         var inputCopy = input
         
         // first pass to get all the correct values
-        // and marks the rest as wrong
+        // and to mark the rest as wrong
         for index in 0..<count {
             let letter = input[index].text
+            
+            guard letter.count == 1 else {
+                return .failure(.invalidCharacterCount(char: letter, at: index))
+            }
             
             if letter == secretCopy[index] {
                 inputCopy[index].state = .correct
@@ -53,12 +58,12 @@ final class GameService: GameServiceProtocol {
             
             let letter = input[index].text
             
-            if secretCopy.contains(letter) && !letter.isEmpty {
+            if !letter.isEmpty, let foundIndex = secretCopy.firstIndex(of: letter) {
                 inputCopy[index].state = .misplaced
-                secretCopy[index] = ""
+                secretCopy[foundIndex] = ""
             }
         }
         
-        return inputCopy
+        return .success(inputCopy)
     }
 }

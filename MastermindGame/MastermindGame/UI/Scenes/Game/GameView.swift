@@ -50,6 +50,7 @@ struct GameView: View {
                 viewModel.startGame()
                 focusedIndex = 0
             }
+            .applyErrorHandling(error: $viewModel.error)
         }
     }
     
