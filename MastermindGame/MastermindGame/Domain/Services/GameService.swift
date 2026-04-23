@@ -20,14 +20,7 @@ final class GameService: GameServiceProtocol {
             return .failure(.invalidSecretLength(actual: length))
         }
         
-        var secret = [Character]()
-        for _ in 0..<length {
-            guard let random = Self.characters.randomElement() else {
-                return .failure(.unexpectedError)
-            }
-            
-            secret.append(random)
-        }
+        let secret: [Character] = (0..<length).map { _ in Self.characters.randomElement()! }
         
         return .success(secret)
     }
