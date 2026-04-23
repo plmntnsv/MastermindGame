@@ -61,11 +61,11 @@ final class GameServiceMock: GameServiceProtocol {
     var secretMock: [String] = ["A", "B", "C", "D"]
     var validateHandler: (([InputBox], [String]) -> [InputBox])?
 
-    func generateSecret(length: Int) -> Result<[String], AppError> {
+    func generateSecret(length: Int) -> Result<[String], GameError> {
         .success(Array(secretMock.prefix(length)))
     }
 
-    func validate(input: [InputBox], against secret: [String]) -> Result<[InputBox], AppError> {
+    func validate(input: [InputBox], against secret: [String]) -> Result<[InputBox], GameError> {
         if let handler = validateHandler {
             return .success(handler(input, secret))
         }

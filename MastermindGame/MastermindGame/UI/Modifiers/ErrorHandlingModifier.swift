@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ErrorHandlingModifier: ViewModifier {
-    @Binding var error: AppError?
+    @Binding var error: GameError?
 
     func body(content: Content) -> some View {
         content
@@ -25,7 +25,7 @@ struct ErrorHandlingModifier: ViewModifier {
 }
 
 extension View {
-    func applyErrorHandling(error: Binding<AppError?>) -> some View {
+    func applyErrorHandling(error: Binding<GameError?>) -> some View {
         self.modifier(ErrorHandlingModifier(error: error))
     }
 }

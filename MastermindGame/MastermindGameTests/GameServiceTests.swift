@@ -52,7 +52,7 @@ struct GameServiceTests {
         case .success(let secret):
             Issue.record("Unexpected success with: \(secret)")
         case .failure(let error):
-            if case .invalidLength = error {
+            if case .invalidSecretLength = error {
                 // ok
             } else {
                 Issue.record("Unexpected error: \(error)")
@@ -63,7 +63,7 @@ struct GameServiceTests {
         case .success(let secret):
             Issue.record("Expected failure for length -1, but got success with: \(secret)")
         case .failure(let error):
-            if case .invalidLength = error {
+            if case .invalidSecretLength = error {
                 // ok
             } else {
                 Issue.record("Unexpected error: \(error)")
@@ -81,7 +81,7 @@ struct GameServiceTests {
         case .success(let validated):
             Issue.record("Expected failure for empty input, got success with: \(validated)")
         case .failure(let error):
-            if case .inputMissmatch = error {
+            if case .invalidInput = error {
                 // ok
             } else {
                 Issue.record("Unexpected error: \(error)")
@@ -94,7 +94,7 @@ struct GameServiceTests {
         case .success(let validated):
             Issue.record("Expected failure for smaller length, got success with: \(validated)")
         case .failure(let error):
-            if case .inputMissmatch = error {
+            if case .invalidInput = error {
                 // ok
             } else {
                 Issue.record("Unexpected error: \(error)")
@@ -107,7 +107,7 @@ struct GameServiceTests {
         case .success(let validated):
             Issue.record("Expected failure for bigger length, got success with: \(validated)")
         case .failure(let error):
-            if case .inputMissmatch = error {
+            if case .invalidInput = error {
                 // ok
             } else {
                 Issue.record("Unexpected error: \(error)")
@@ -118,7 +118,7 @@ struct GameServiceTests {
     @Test("validate - marks correct, misplaced, and wrong correctly")
     func testValidateInput() async throws {
         let service = GameService()
-        let secret = ["A", "B", "C", "D"]
+        var secret = ["A", "B", "C", "D"]
 
         // All correct
         var input = [
@@ -173,6 +173,37 @@ struct GameServiceTests {
             #expect(result[3].state == .correct)
         } else {
             Issue.record("Expected success for mixed input")
+        }
+        
+        // Repeating secret, all correct
+        secret = ["A", "A", "A", "A"]
+        input = [
+            InputBox(text: "A", state: .empty),
+            InputBox(text: "A", state: .empty),
+            InputBox(text: "A", state: .empty),
+            InputBox(text: "A", state: .empty),
+        ]
+        if case .success(let result) = service.validate(input: input, against: secret) {
+            #expect(result.allSatisfy({ $0.state == .correct }))
+        } else {
+            Issue.record("Expected success for all correct input")
+        }
+        
+        // 2 correct, 2 misplaced
+        secret = ["A", "A", "A", "B"]
+        input = [
+            InputBox(text: "B", state: .empty),
+            InputBox(text: "A", state: .empty),
+            InputBox(text: "A", state: .empty),
+            InputBox(text: "A", state: .empty),
+        ]
+        if case .success(let result) = service.validate(input: input, against: secret) {
+            #expect(result[0].state == .misplaced)
+            #expect(result[1].state == .correct)
+            #expect(result[2].state == .correct)
+            #expect(result[3].state == .misplaced)
+        } else {
+            Issue.record("Expected success for all correct input")
         }
     }
 

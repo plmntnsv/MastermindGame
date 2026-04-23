@@ -13,7 +13,7 @@ protocol GameViewModelType: AnyObject {
     var totalTime: Int { get }
     var remainingTime: Int { get set }
     var playerInput: [InputBox] { get set }
-    var error: AppError? { get set }
+    var error: GameError? { get set }
     var debugSecretLetters: [String] { get }
     var isGameRunning: Bool { get }
     
@@ -28,7 +28,7 @@ final class GameViewModel: GameViewModelType {
     let totalTime = 60
     var remainingTime = 60
     var playerInput: [InputBox] = []
-    var error: AppError?
+    var error: GameError?
     
     // added this for faster testing purposes
     var debugSecretLetters: [String] { secretLetters }

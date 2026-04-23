@@ -8,62 +8,66 @@
 import Foundation
 
 protocol GameServiceProtocol {
-    func generateSecret(length: Int) -> Result<[String], AppError>
-    func validate(input: [InputBox], against secret: [String]) -> Result<[InputBox], AppError>
+    func generateSecret(length: Int) -> Result<[String], GameError>
+    func validate(input: [InputBox], against secret: [String]) -> Result<[InputBox], GameError>
 }
 
 final class GameService: GameServiceProtocol {
-    private let characters: [String] = (65...90).map { String(UnicodeScalar($0)) } // A to Z
+    private static let characters: [String] = (65...90).map { String(UnicodeScalar($0)) } // A to Z
     
-    func generateSecret(length: Int) -> Result<[String], AppError> {
+    func generateSecret(length: Int) -> Result<[String], GameError> {
         guard length > 0 else {
-            return .failure(.invalidLength(expected: "At least 1", actual: "\(length)"))
+            return .failure(.invalidSecretLength(actual: length))
         }
         
-        let secret = (0..<length).compactMap { _ in characters.randomElement() }
+        var secret: [String] = []
+        for _ in 0..<length {
+            guard let random = Self.characters.randomElement() else {
+                return .failure(.unexpectedError)
+            }
+            
+            secret.append(random)
+        }
+        
         return .success(secret)
     }
     
-    func validate(input: [InputBox], against secret: [String]) -> Result<[InputBox], AppError> {
+    func validate(input: [InputBox], against secret: [String]) -> Result<[InputBox], GameError> {
         guard !input.isEmpty, input.count == secret.count else {
-            return .failure(.inputMissmatch)
+            return .failure(.invalidInput)
         }
         
         let count = input.count
-        var secretCopy = secret
-        var inputCopy = input
+        var result = input
+        var frequency: [String: Int] = [:]
         
         // first pass to get all the correct values
         // and to mark the rest as wrong
-        for index in 0..<count {
-            let letter = input[index].text
+        for i in 0..<count {
+            let letter = result[i].text
             
             guard letter.count == 1 else {
-                return .failure(.invalidCharacterCount(char: letter, at: index))
+                return .failure(.invalidCharacterCount(char: letter, at: i))
             }
             
-            if letter == secretCopy[index] {
-                inputCopy[index].state = .correct
-                secretCopy[index] = ""
+            if letter == secret[i] {
+                result[i].state = .correct
             } else {
-                inputCopy[index].state = .wrong
+                result[i].state = .wrong
+                frequency[secret[i], default: 0] += 1
             }
         }
         
         // second pass to match the misplaced values
-        for index in 0..<count {
-            if inputCopy[index].state == .correct {
-                continue
-            }
+        for i in result.indices where result[i].state == .wrong {
+            let letter = result[i].text
             
-            let letter = input[index].text
-            
-            if !letter.isEmpty, let foundIndex = secretCopy.firstIndex(of: letter) {
-                inputCopy[index].state = .misplaced
-                secretCopy[foundIndex] = ""
+            if let count = frequency[letter], count > 0 {
+                result[i].state = .misplaced
+                frequency[letter] = count - 1
             }
         }
         
-        return .success(inputCopy)
+        return .success(result)
     }
 }

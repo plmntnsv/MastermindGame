@@ -25,7 +25,9 @@ final class GameTimerService: TimerService {
         
         remaining = duration
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            guard let self else { return }
+            
             onTick(self.remaining)
             
             if self.remaining <= 0 {

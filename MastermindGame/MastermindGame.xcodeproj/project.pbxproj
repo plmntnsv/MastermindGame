@@ -22,7 +22,7 @@
 		D88FA75F2F98F7D500859C04 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA75E2F98F7D500859C04 /* TimerService.swift */; };
 		D88FA7682F992EF900859C04 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA7672F992EF900859C04 /* TimerView.swift */; };
 		D88FA7712F99458200859C04 /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA7702F99458200859C04 /* GameService.swift */; };
-		D88FA79D2F99FEE400859C04 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA79C2F99FEE400859C04 /* AppError.swift */; };
+		D88FA79D2F99FEE400859C04 /* GameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA79C2F99FEE400859C04 /* GameError.swift */; };
 		D88FA7A02F9A038A00859C04 /* ErrorHandlingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FA79F2F9A038A00859C04 /* ErrorHandlingModifier.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +62,7 @@
 		D88FA75E2F98F7D500859C04 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
 		D88FA7672F992EF900859C04 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		D88FA7702F99458200859C04 /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
-		D88FA79C2F99FEE400859C04 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		D88FA79C2F99FEE400859C04 /* GameError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameError.swift; sourceTree = "<group>"; };
 		D88FA79F2F9A038A00859C04 /* ErrorHandlingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlingModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,7 +231,7 @@
 		D88FA79E2F99FFA600859C04 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
-				D88FA79C2F99FEE400859C04 /* AppError.swift */,
+				D88FA79C2F99FEE400859C04 /* GameError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -379,7 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D88FA79D2F99FEE400859C04 /* AppError.swift in Sources */,
+				D88FA79D2F99FEE400859C04 /* GameError.swift in Sources */,
 				D88FA74C2F989D5700859C04 /* InputBox.swift in Sources */,
 				D88FA7712F99458200859C04 /* GameService.swift in Sources */,
 				D88FA7052F96B4E100859C04 /* RootView.swift in Sources */,
