@@ -3,7 +3,10 @@
 It might seem like it is over engineered a bit but I tried to showcase as much as possible and build with the idea that it might scale in the future with more features.
 
 ## Stack:
-SwiftUI + MVVM + Clean (but with intentionally missing layers)
+- SwiftUI
+- MVVM + Clean (but with intentionally missing layers)
+- Dedicated Routing for navigation
+- Factory pattern for creating views
 
 ## Notes:
 - Tested on both a physical device and simulator  
