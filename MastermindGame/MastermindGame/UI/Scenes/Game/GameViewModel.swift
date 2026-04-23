@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 
 protocol GameViewModelType: AnyObject {
-    var remainingTime: Int { get set }
-    var totalTime: Int { get }
-    var playerInput: [InputBox] { get set }
     var secretLength: Int { get }
-    var isGameRunning: Bool { get }
+    var totalTime: Int { get }
+    var remainingTime: Int { get set }
+    var playerInput: [InputBox] { get set }
     var debugSecretLetters: [String] { get }
+    var isGameRunning: Bool { get }
     
     func startGame()
     func onCheckTapped()
@@ -23,16 +23,16 @@ protocol GameViewModelType: AnyObject {
 
 @Observable
 final class GameViewModel: GameViewModelType {
-    var remainingTime = 60
-    let totalTime = 60
-    var playerInput: [InputBox] = []
     let secretLength = 4
-    
-    private(set) var isGameRunning = false
-    private var secretLetters: [String] = []
+    let totalTime = 60
+    var remainingTime = 60
+    var playerInput: [InputBox] = []
     
     // added this for faster testing purposes
     var debugSecretLetters: [String] { secretLetters }
+    
+    private(set) var isGameRunning = false
+    private var secretLetters: [String] = []
     
     private var router: AppRouter
     private let timerService: TimerService
